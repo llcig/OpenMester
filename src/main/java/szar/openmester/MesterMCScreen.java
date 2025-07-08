@@ -70,9 +70,13 @@ public class MesterMCScreen extends Screen {
                         Session.AccountType.LEGACY
                     );
 
-                    Field sessionField = MinecraftClient.class.getDeclaredField("session");
-                    sessionField.setAccessible(true);
-                    sessionField.set(client, session);
+                    for (Field sessionField : MinecraftClient.class.getDeclaredFields()) {
+                        if (sessionField.getType() != Session.class) continue;
+
+                        sessionField.setAccessible(true);
+                        sessionField.set(client, session);
+                        break;
+                    }
 
                     button.setMessage(Text.of("Logged in"));
                 } catch (Throwable e) {
