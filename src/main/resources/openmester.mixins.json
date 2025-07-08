@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "szar.openmester.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ConnectScreenMixin",
+    "MinecraftClientAccessor",
+    "MultiplayerScreenAccessor",
+    "MultiplayerScreenMixin",
+    "SessionAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": false
+  }
+}
